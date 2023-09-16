@@ -20,6 +20,7 @@ class Ingredient {
     private String effect;
     
     private HashMap<String, String> harmfulIngredients = HashMap<String, String>();
+    
 
     harmfulIngredients.put("carcinogen", "Large amounts of carinogen can cause cancer.");
     harmfulIngredients.put("high fructose corn syrup", "Excess amounts can lead to diabetes and obesity.");
