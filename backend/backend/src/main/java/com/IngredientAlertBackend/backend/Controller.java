@@ -48,4 +48,8 @@ class Ingredient {
     public void setEffect(String effect) {
         this.effect = effect;
     }
+
+    public String getHarmfulIngredients() {
+        return this.harmfulIngredients;
+    }
 }
