@@ -1,29 +1,28 @@
+// HistoryItem.tsx
 import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, View } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const HistoryItem = ({ product, onItemPress }) => {
-    return (
-        <TouchableOpacity style={styles.itemContainer} onPress={() => onItemPress(product)}>
-            <Image source={require('../../assets/images/dummyProduct.png')} style={styles.image} />
-            <Text style={styles.name}>{product.name}</Text>
-        </TouchableOpacity>
-    );
-};
+const HistoryItem = ({ product, onPress }) => (
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+        <Image source={require('../assets/images/dummyProduct.png')} style={styles.productImage} />
+        <Text style={styles.productName}>{product.name}</Text>
+    </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
-    itemContainer: {
+    container: {
         flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
         borderBottomWidth: 1,
-        borderColor: '#eee',
+        borderColor: '#e0e0e0',
     },
-    image: {
-        width: 40,
-        height: 40,
+    productImage: {
+        width: 50,
+        height: 50,
         marginRight: 10,
     },
-    name: {
+    productName: {
         fontSize: 16,
     },
 });

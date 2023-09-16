@@ -1,16 +1,36 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Text, View } from '../../components/Themed';
 import HistoryList from '../../components/HistoryList';
-import mockData from '../../data/mockData.json';
 
-const History = () => {
-    const repeatedData = Array(20).fill(mockData); //creates an array with 20 repeated mock data items
+export default function History() {
 
-    const handleItemPress = (product) => {
-        //handle navigation to the detailed view of the product.
-        console.log(product);
+    const handleItemPress = (product: { name: any; }) => {
+        //handle item click here by naving to item page
+        console.log(product.name);
     };
 
-    return <HistoryList data={repeatedData} onItemPress={handleItemPress} />;
-};
+    return (
+        <View style={styles.container}>
+            <HistoryList onItemPress={handleItemPress} />
+        </View>
+    );
+}
 
-export default History;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 20
+    },
+    separator: {
+        marginVertical: 30,
+        height: 1,
+        width: '80%',
+        alignSelf: 'center'
+    },
+});
