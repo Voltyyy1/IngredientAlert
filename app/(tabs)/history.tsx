@@ -1,31 +1,16 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import HistoryList from '../../components/HistoryList';
+import mockData from '../../data/mockData.json';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+const History = () => {
+    const repeatedData = Array(20).fill(mockData); //creates an array with 20 repeated mock data items
 
-export default function History() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Tab One</Text>
-            <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-            <EditScreenInfo path="app/(tabs)/indasdasdex.tsx" />
-        </View>
-    );
-}
+    const handleItemPress = (product) => {
+        //handle navigation to the detailed view of the product.
+        console.log(product);
+    };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
-});
+    return <HistoryList data={repeatedData} onItemPress={handleItemPress} />;
+};
+
+export default History;
