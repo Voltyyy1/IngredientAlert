@@ -15,6 +15,10 @@ public class Controller {
 
 class Ingredient {
     private String name;
+    private String[] ingredients;
+
+    private String effect;
+    
     private HashMap<String, String> harmfulIngredients = HashMap<String, String>();
 
     harmfulIngredients.put("carcinogen", "Large amounts of carinogen can cause cancer.");
@@ -27,5 +31,21 @@ class Ingredient {
 
     public String getName() {
         return name;
+    }
+
+    public String[] getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String[] ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getEffect() {
+        return effect;
+    }
+
+    public void setEffect(String effect) {
+        this.effect = effect;
     }
 }
