@@ -1,17 +1,22 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
+//https://icons.expo.fyi/Index
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome>['name'] | React.ComponentProps<typeof Ionicons>['name'];
   color: string;
+  family?: "FontAwesome" | "Ionicons";
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  const { name, color, family = "FontAwesome" } = props;
+
+  if (family === "FontAwesome") {
+    return <FontAwesome size={28} style={{ marginBottom: -3 }} name={name} color={color} />;
+  } else if (family === "Ionicons") {
+    return <Ionicons size={28} style={{ marginBottom: -3 }} name={name} color={color} />;
+  }
 }
 
 export default function TabLayout() {
@@ -26,7 +31,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -47,7 +52,7 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="fast-food" color={color} family="Ionicons" />,
         }}
       />
     </Tabs>
