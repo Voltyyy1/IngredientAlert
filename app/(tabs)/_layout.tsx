@@ -30,7 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: 'Add Food',
           tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -49,12 +49,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="info"
         options={{
-          title: 'Tab Two',
+          title: 'Info',
           tabBarIcon: ({ color }) => <TabBarIcon name="fast-food" color={color} family="Ionicons" />,
         }}
       />
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: 'History',
+          tabBarIcon: ({ color }) => <TabBarIcon name="history" color={color} />,
+        }}
+      />
     </Tabs>
+
   );
 }
