@@ -28,6 +28,7 @@ class Ingredient {
     harmfulIngredients.put("vegetable oil", "Leads to imflammation.");
     harmfulIngredients.put("carrageenan", "Increases fasting blood sugar and glucose intolerance.");
     harmfulIngredients.put("monosodium glutamate", "High in sodium and leads to addiction.");
+    harmfulIngredients.put("aspartame", "Large amounts of aspartame can cause cancer.");
 
     public String getName() {
         return name;
